@@ -18,4 +18,11 @@ include: "*.view.lkml"                       # include all views in this project
 #   }
 # }
 
-explore: Trans_date {}
+explore: trans_date_lyft
+  {
+  join: trans_day_dasher {
+    type: left_outer
+    relationship: one_to_one
+    sql_on: ${trans_date_lyft.lyft_tr_date} = ${trans_day_dasher.dasher_tr_date} ;;
+  }
+}
