@@ -25,4 +25,9 @@ explore: trans_date_lyft
     relationship: one_to_one
     sql_on: ${trans_date_lyft.lyft_tr_date} = ${trans_day_dasher.dasher_tr_date} ;;
   }
+    join: trans_day_talipay {
+      type: left_outer
+      relationship: one_to_one
+      sql_on: ${trans_date_lyft.lyft_tr_date} = ${trans_day_talipay.talipay_tr_date} ;;
+    }
 }
