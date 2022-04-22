@@ -2,6 +2,7 @@ view: trans_day_dasher {
   derived_table: {
     sql: select transaction_date as dasher_tr_date, count(id) as dasher_posted_records from analytics_prod_doordash.i2c_posted
     where transaction_date = dateadd(day, -1, date(sysdate))
+    group by transaction_date
       ;;
   }
 
